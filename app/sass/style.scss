@@ -1,0 +1,46 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Exo:400,700);
+
+body {
+  font-family: Exo;
+  padding-top: 70px;
+  padding-bottom: 100px;
+}
+
+.navbar-text > a {
+  color: inherit; // what this will do will not show the blue highlighted color on our footer icons
+  text-decoration: none;
+}
+
+.title {
+  font-family: lobster;
+}
+
+.carousel {
+  margin-bottom: 20px;
+}
+
+.thumbnail img:hover {
+  transform: scale(1.1);
+}
+
+.thumbnail img {
+  transition: all 0.3s ease 0s;
+  width: 100%;
+}
+
+.thumbnail {
+  overflow: hidden; 
+}
+
+.panel {
+  width: 100%;
+  margin-top: 50px;
+  margin-right: 5px;
+}
+
+.fat {
+  background: url('http://i.imgur.com/sV3QQOM.jpg') no-repeat center/cover;
+  padding: 150px 0;
+}
+
