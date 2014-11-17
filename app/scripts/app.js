@@ -45,8 +45,8 @@ bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $
 
 bodyApp.controller("homeCtrl", ["$scope", function($scope) {
 
- $('.carousel').carousel({  // using jQuery event to 
- 		interval: 3000
+ $('.carousel').carousel({  // using jQuery event to start the carousel
+ 		interval: 5000
 	});
   
 }]);
