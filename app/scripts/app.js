@@ -3,7 +3,7 @@
 var bodyApp = angular.module("bodyApp", ["ui.router"]);
 
 
-bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $locationProvider) {
+bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $locationProvider, $http) {
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false
@@ -43,6 +43,16 @@ bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $
   
 }]); // closing config tag.
 
+bodyApp.service('nutritionApi', ['$http', '$q', function($http, $q){
+  this.search = function(query){
+    var deferred = $q.defer();
+      $http.get("https://api.nutritionix.com/v1_1/search/" + encodeURIComponent(query) + "?appId=d342e8ae&appKey=5328c9d0d85c5c601e2e91d308dc0ff4")                           .success(deferred.resolve).error(deferred.reject);
+    return deferred.promise
+  };
+}]);
+
+
+
 bodyApp.controller("homeCtrl", ["$scope", function($scope) {
 
  $('.carousel').carousel({  // using jQuery event to start the carousel
@@ -50,6 +60,7 @@ bodyApp.controller("homeCtrl", ["$scope", function($scope) {
 	});
   
 }]);
+
 
 
 
@@ -68,7 +79,11 @@ bodyApp.controller("proteinsCtrl", ["$scope", function($scope) {
 
 }]);
 
-bodyApp.controller("breakfastCtrl", ["$scope", function($scope) {
-  
+bodyApp.controller("breakfastCtrl", ["$scope", 'nutritionApi', function($scope, nutritionApi) {
+  nutritionApi.search("chicken").then(function(data){
+    console.log("success: ", data);
+  }, function(message){
+    console.log("error: ", message);
+  } );
 
 }]);

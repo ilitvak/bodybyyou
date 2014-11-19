@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 @import url(http://fonts.googleapis.com/css?family=Exo:400,700);
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(http://fonts.googleapis.com/css?family=Didact+Gothic);
 
 body {
   font-family: Exo;
@@ -12,9 +14,6 @@ body {
   text-decoration: none;
 }
 
-.title {
-  font-family: lobster;
-}
 
 .carousel {
   margin-bottom: 20px;
@@ -39,6 +38,11 @@ body {
   margin-right: 5px;
 }
 
+.panel-break {
+  margin: 0px;
+}
+
+
 .fat {
   background: url('http://i.imgur.com/gZXVvOC.png') repeat;
 }
@@ -48,4 +52,21 @@ body {
 }
 .proteinPlus {
   background: url("http://i.imgur.com/gZXVvOC.png") repeat;
+}
+
+.breakfast {
+ background: url('http://i.imgur.com/cMmDNHI.png') repeat; 
+}
+
+.table {
+  font-family: Didact Gothic;
+  font-size: 17px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.img-snd {
+  margin-top: 20px;
 }
