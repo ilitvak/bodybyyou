@@ -2,6 +2,8 @@
 @import url(http://fonts.googleapis.com/css?family=Exo:400,700);
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 @import url(http://fonts.googleapis.com/css?family=Didact+Gothic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400);
+
 
 body {
   font-family: Exo;
@@ -14,9 +16,18 @@ body {
   text-decoration: none;
 }
 
+.vitruvian {
+  height: 60px;
+  width: 60px;
+  margin: 3px 0;
+}
+
 
 .carousel {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  img {
+    min-width: 100%;
+  }
 }
 
 .thumbnail img:hover {
@@ -70,3 +81,59 @@ img {
 .img-snd {
   margin-top: 20px;
 }
+
+.snacks {
+  background: url('http://i.imgur.com/qZMquXL.png') repeat;
+}
+
+.Nutrition-Plan {
+  position: relative;
+  background: #F8F8F8;
+  padding: 150px 0;  
+  margin: 0;
+  text-align: center;
+  .Nutrition-Plan h3 {
+    font-size: 25px;
+  }
+}
+.selling-points {
+  position: relative;
+  padding: 100px;
+  .point {
+    padding: 0px;
+    margin-left: 100px;
+    p {
+      font-size: 14px;
+      font-family: Montserrat;
+    }
+  }
+}
+
+
+.glyphicon {
+  margin-right: -25px;
+  margin-top: -4px;
+}
+
+.fluids {
+  margin-bottom: 60px;
+}
+
+.flex-lewis {
+  margin-top: 50px;
+}
+
+.Goals {
+  position: relative;
+  background-color: #FBFBFB;
+  padding: 150px 0;  
+  margin: 0;
+  text-align: center;
+  img {
+    height: 75px;
+    width: 75px;
+    margin-left: 25px;
+    } // closing SASS img tag
+} // closing goals class tag
+
+

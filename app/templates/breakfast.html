@@ -3,11 +3,11 @@
     <h1>BreakFast</h1>
     <p>Making shopping for breakfast options less stressful</p>
   </div> <!--jumbotron closing tag -->
-    <div class="col-md-6">
-      <div class="panel panel-default text-center panel-break">
-        <div class="panel-heading">
-          <h3 class="panel-title">BreakFast Options - Best to Worst </h3>
-        </div> <!-- panel heading closing tag-->
+  <div class="col-md-6">
+    <div class="panel panel-default text-center panel-break">
+      <div class="panel-heading">
+        <h3 class="panel-title">BreakFast Options</h3>
+      </div> <!-- panel heading closing tag-->
         <table class="table table-bordered table-striped">
           <tbody>
             <tr>
@@ -33,7 +33,7 @@
           </tbody>
         </table> <!--main table closing tag -->
       </div> <!-- closing panel default tag-->
-    </div> <!--closing col-md-6 tag --> 
+   </div> <!--closing col-md-6 tag --> 
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-4">
@@ -69,4 +69,17 @@
         </div> <!--col md-4 closing tag -->
       </div> <!--closing row tag #3 -->
     </div> <!--closing md-6 tag #2 -->
+    <form>
+      <input type="text" ng-model="searchQuery" ng-model-options="{debounce: 500}" placeholder="Food Item">
+        <button type="submit" class="btn btn-primary" ng-click="search()"> Submit </button>
+    </form>
+    <div ng-show="hasSearchResults">
+      <div class="row" ng-repeat="item in searchResults.hits track by item._id">
+        <h5>{{item.fields.brand_name}}</h5>
+        <hr />
+        <div>
+          {{item.fields.item_name}} {{item.fields.nf_calories}} {{item.fields.nf_total_carbohydrate}}
+       </div>
+      </div><!-- -->
+    </div> <!-- -->
 </div> <!--container closing tag -->
