@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container breakfast-container">
   <div class="jumbotron text-center breakfast">
     <h1>BreakFast</h1>
     <p>Making shopping for breakfast options less stressful</p>
@@ -8,33 +8,33 @@
       <div class="panel-heading">
         <h3 class="panel-title">BreakFast Options</h3>
       </div> <!-- panel heading closing tag-->
-        <table class="table table-bordered table-striped">
-          <tbody>
-            <tr>
-              <td>Oatmeal</td>
-              <td>Steel Cut Oatmeal, Scottish Oatmeal, Rolled Oats - Regular(old fashioned), Rolled Oats - quick or Instant</td>
-            </tr>
-            <tr>
-              <td>Cereal</td>
-              <td>Kashi Go-Lean Original, Kashi Go-Lean Crisp, Bob’s Red Mill Crunchy Coconut Granola, Special K Plus Protein, Ezekiel 4:9                                     Sprouted Whole Grain Cereal, Golden Flax </td>
-            </tr>
-            <tr>
-              <td>Eggs</td>
-              <td>Omega-3 Large Eggs, Great-Value Liquid Egg Whites, Egg Beaters - Liquid Egg Whites</td>
-            </tr>
-            <tr>
-              <td>Greek Yogurts</td>
-              <td>Chobani Original, FAGE Original, Chobani 2% strawberry banana, Oikos traditional plain, Chobani/FAGE flavored yogurts are                                     at your discretion. Recommendation: Get the originals and add natural fruits. </td>
-            </tr>
-            <tr>
-              <td>Pancakes</td>
-              <td>Arrowhead Mills - Sweet Potato Pancake & Waffle Mix, Hodgson Mill - Multi grain, buckwheat pancake mix, Bob’s Red Mill                                       Pancake & Waffle Mixes, Barefoot Contessa Hearty Grain Pancake & Waffle Mix</td>
-            </tr>
-          </tbody>
-        </table> <!--main table closing tag -->
-      </div> <!-- closing panel default tag-->
-   </div> <!--closing col-md-6 tag --> 
-    <div class="col-md-6">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td>Oatmeal</td>
+            <td>Steel Cut Oatmeal, Scottish Oatmeal, Rolled Oats - Regular(old fashioned), Rolled Oats - quick or Instant</td>
+          </tr>
+          <tr>
+            <td>Cereal</td>
+            <td>Kashi Go-Lean Original, Kashi Go-Lean Crisp, Bob’s Red Mill Crunchy Coconut Granola, Special K Plus Protein, Ezekiel 4:9                                     Sprouted Whole Grain Cereal, Golden Flax </td>
+          </tr>
+          <tr>
+            <td>Eggs</td>
+            <td>Omega-3 Large Eggs, Great-Value Liquid Egg Whites, Egg Beaters - Liquid Egg Whites</td>
+          </tr>
+          <tr>
+            <td>Greek Yogurts</td>
+            <td>Chobani Original, FAGE Original, Chobani 2% strawberry banana, Oikos traditional plain, Chobani/FAGE flavored yogurts are                                     at your discretion. Recommendation: Get the originals and add natural fruits. </td>
+          </tr>
+          <tr>
+            <td>Pancakes</td>
+            <td>Arrowhead Mills - Sweet Potato Pancake & Waffle Mix, Hodgson Mill - Multi grain, buckwheat pancake mix, Bob’s Red Mill                                       Pancake & Waffle Mixes, Barefoot Contessa Hearty Grain Pancake & Waffle Mix</td>
+          </tr>
+        </tbody>
+      </table> <!--main table closing tag -->
+    </div> <!-- closing panel default tag-->
+  </div> <!--closing col-md-6 tag --> 
+    <div class="col-md-6"> 
       <div class="row">
         <div class="col-md-4">
           <img src="http://i.imgur.com/z4YF8ui.png" alt="image"/>
@@ -68,18 +68,23 @@
           <img src="http://i.imgur.com/w5Z0suq.jpg" alt="image 9"/>
         </div> <!--col md-4 closing tag -->
       </div> <!--closing row tag #3 -->
-    </div> <!--closing md-6 tag #2 -->
+   </div> <!--closing md-6 tag #2 -->
     <form>
       <input type="text" ng-model="searchQuery" ng-model-options="{debounce: 500}" placeholder="Food Item">
         <button type="submit" class="btn btn-primary" ng-click="search()"> Submit </button>
     </form>
     <div ng-show="hasSearchResults">
       <div class="row" ng-repeat="item in searchResults.hits track by item._id">
-        <h5>{{item.fields.brand_name}}</h5>
-        <hr />
-        <div>
-          {{item.fields.item_name}} {{item.fields.nf_calories}} {{item.fields.nf_total_carbohydrate}}
-       </div>
-      </div><!-- -->
-    </div> <!-- -->
+        <table class="table table-bordered table-striped table-hover">
+          <tr>
+            <td>
+              <h5>{{item.fields.brand_name}}</h5> 
+              <div>
+                {{item.fields.item_name}} <strong>Calories</strong> {{item.fields.nf_calories}} <strong>Carbs</strong> {{item.fields.nf_total_carbohydrate}}                 <strong>Protein</strong> {{item.fields.nf_protein}} 
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div><!--closing row tag -->
+    </div> <!--closing ng-show tag -->
 </div> <!--container closing tag -->

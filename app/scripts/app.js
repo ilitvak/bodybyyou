@@ -1,4 +1,8 @@
-var bodyApp = angular.module("bodyApp", ["ui.router"]);
+var bodyApp = angular.module("bodyApp", ["ui.router", 'firebase']);
+// https://cdn.firebase.com/v0/firebase.js - input into dependecy. 
+// https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js
+
+
 
 
 bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $locationProvider, $http) {
@@ -36,6 +40,12 @@ bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $
     controller: "breakfastCtrl",
     templateUrl: "/templates/breakfast.html"
   });
+  
+  $stateProvider.state("aboutme", {
+    url: "/aboutme",
+    controller: "aboutmeCtrl",
+    templateUrl: "/templates/aboutme.html"
+  });
 
   $stateProvider.state("snacks", {
     url: "/snacks",
@@ -49,6 +59,11 @@ bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $
     templateUrl: "/templates/lunch.html"
   });
   
+  $stateProvider.state("dinner", {
+    url: '/dinner',
+    controller: 'dinnerCtrl',
+    templateUrl: "/templates/dinner.html"
+  });
   
 }]); // closing config tag.
 
@@ -68,20 +83,44 @@ bodyApp.service('nutritionApi', ['$http', '$q', function($http, $q){
 bodyApp.controller("homeCtrl", ["$scope", function($scope) {
 
  $('.carousel').carousel({  // using jQuery event to start the carousel
- 		interval: 5000
+ 		interval: 3500
 	});
   
 }]);
 
 
-bodyApp.controller('snacksCtrl', ["$scope", function($scope){
-
+bodyApp.controller('snacksCtrl', ["$scope", 'nutritionApi', function($scope, nutritionApi){
+  
+  $scope.searchQuery = '';
+  $scope.hasSearchResults = false;
+  $scope.searchResults = [];
+  
+  $scope.search = function(){
+    nutritionApi.search($scope.searchQuery).then(onSearchSuccess, onSearchFailure);
+    console.log("searchingFor" + $scope.searchQuery);
+  };
+  
+  function onSearchSuccess(data){
+    $scope.hasSearchResults = true;
+    $scope.searchResults = data;
+  }
+  
+  function onSearchFailure(message){
+    console.log("error: ", message);
+  }
   
 }]);
 
-bodyApp.controller("lunchCtrl", ["$scope", function($scope) {
+bodyApp.controller("lunchCtrl", ["$scope", "$state", function($scope, $state) {
+  $scope.oils = function(){
+    $state.go("fats");
+  };
 
+}]);
 
+bodyApp.controller("dinnerCtrl", ["$scope", function($scope){
+
+  
 }]);
 
 
@@ -122,3 +161,49 @@ bodyApp.controller("breakfastCtrl", ["$scope", 'nutritionApi', function($scope, 
   
   
 }]);
+
+bodyApp.controller("aboutmeCtrl", ["$scope", function($scope){
+  
+
+}]);
+
+bodyApp.controller("contactCtrl", ['$scope', '$firebase', function($scope, $firebase){
+
+  var fire = new Firebase('https://bodybyyou.firebaseio.com');
+  $scope.messages = $firebase(fire).$asArray();
+
+  $scope.name ='';
+  $scope.email = '';
+  $scope.message = '';
+
+
+  $scope.addMessage = function() {
+    $scope.messages.$add({'name': $scope.name, 'email': $scope.email, 'message': $scope.message});
+    console.log($scope.name, $scope.email, $scope.message);
+    $scope.name = '';
+    $scope.email = '';
+    $scope.message = '';
+  };
+  
+  console.log(fire);
+  
+  
+  
+ /* $scope.addForm = function(isValid) {
+  
+    if(isValid) {
+        alert('yay');
+    }
+    else {
+      alert('fill in required field');
+    }
+    $scope.addMessage();
+  };
+   console.log('test'); */
+  
+  
+}]);
+
+
+
+

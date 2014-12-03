@@ -3,23 +3,20 @@
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 @import url(http://fonts.googleapis.com/css?family=Didact+Gothic);
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400);
+@import url(http://fonts.googleapis.com/css?family=Goblin+One);
 
 
 body {
   font-family: Exo;
-  padding-top: 70px;
-  padding-bottom: 100px;
+}
+
+.carousel-main {
+  margin-top: 55px;
 }
 
 .navbar-text > a {
   color: inherit; // what this will do will not show the blue highlighted color on our footer icons
   text-decoration: none;
-}
-
-.vitruvian {
-  height: 60px;
-  width: 60px;
-  margin: 3px 0;
 }
 
 
@@ -54,20 +51,50 @@ body {
 }
 
 
+.proteinPlus {
+  background: #fafafa;
+}
+
 .fat {
-  background: url('http://i.imgur.com/gZXVvOC.png') repeat;
+  background: #fafafa;
 }
 
 .carbo {
-  background: url('http://i.imgur.com/gZXVvOC.png') repeat;
-}
-.proteinPlus {
-  background: url("http://i.imgur.com/gZXVvOC.png") repeat;
+  background: #fafafa;
 }
 
-.breakfast {
- background: url('http://i.imgur.com/cMmDNHI.png') repeat; 
+//  Jumbotron backgrounds!    ///////////////// 
+.breakfast-container{
+  padding-bottom: 150px; 
+  .breakfast {
+    margin-top: 75px;
+    background: url('http://i.imgur.com/cMmDNHI.png') repeat; 
+  }
 }
+.snacks-container{
+  padding-bottom: 150px;
+  .snacks {
+    margin-top: 75px;
+    background: url('http://i.imgur.com/qZMquXL.png') repeat;
+  }
+}
+.lunch-container {
+  padding-bottom: 75px;  
+  .lunch {
+    margin-top: 75px;
+    background: url('http://i.imgur.com/QDUHC04.png') repeat;
+  }
+}  
+.dinner-container {
+  padding-bottom: 75px;
+  .dinner {
+    margin-top: 75px;
+    background: url('http://i.imgur.com/lrOdRSl.png') repeat;
+  }
+}
+///////////////////////////////////////////
+
+
 
 .table {
   font-family: Didact Gothic;
@@ -82,58 +109,122 @@ img {
   margin-top: 20px;
 }
 
-.snacks {
-  background: url('http://i.imgur.com/qZMquXL.png') repeat;
-}
-
 .Nutrition-Plan {
   position: relative;
-  background: #F8F8F8;
-  padding: 150px 0;  
+  background:  #FBFBFB;
+  padding: 180px 0;  
   margin: 0;
   text-align: center;
-  .Nutrition-Plan h3 {
+  h3 {
     font-size: 25px;
   }
 }
+
+.container-fluid {
+  margin-bottom: 60px;
+}
+
 .selling-points {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   position: relative;
   padding: 100px;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
   .point {
     padding: 0px;
-    margin-left: 100px;
+    margin: 0 10px;
+    text-align: center;
     p {
       font-size: 14px;
       font-family: Montserrat;
+      }
     }
   }
-}
-
 
 .glyphicon {
   margin-right: -25px;
   margin-top: -4px;
 }
 
-.fluids {
-  margin-bottom: 60px;
-}
 
-.flex-lewis {
-  margin-top: 50px;
+.home-images {
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .Goals {
   position: relative;
   background-color: #FBFBFB;
-  padding: 150px 0;  
-  margin: 0;
+  padding: 180px 0;  
   text-align: center;
   img {
     height: 75px;
     width: 75px;
     margin-left: 25px;
-    } // closing SASS img tag
-} // closing goals class tag
+    } 
+} 
+
+
+
+//////////Dinner Page////////////
+
+.dinner-options {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  @media (min-width: 768px){
+  flex-direction: row;
+  }
+}
+///////////////////////
+
+//////Margin
+
+.container-fat,
+.container-carbs,
+.container-protein {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+.aboutme-page {
+  margin-top: 35px;
+} 
+
+.aboutme-row {
+  margin: 150px 0;
+  font-family: Montserrat;
+  text-align: center;
+}
+
+
+.aboutme-intro {
+  position: relative;
+  background:  #FBFBFB;
+  padding: 180px 0;  
+  margin-top: 50px;
+  font-family: Montserrat;
+  text-align: center;
+}
+
+.aboutme-second-photo {
+  margin: 100px 0;
+}
+
+.aboutme-second-intro {
+  position: relative;
+  background:  #FBFBFB;
+  padding: 180px 0;  
+  font-family: Montserrat;  
+  margin-top: 50px;
+  text-align: center;
+}
 
 

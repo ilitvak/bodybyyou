@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container snacks-container">
   <div class="jumbotron text-center snacks">
     <h1>Snacks</h1>
     <p>Break Time? Grab a healthy Snack!</p>
@@ -25,8 +25,41 @@
             <td>Brand is irrelevant, just make sure the fat content is moderately low and protein is high.</td>
             <td>Serving size: 8oz. Excellent day/night snack. May add blueberries and 1 tbsp honey to enhance flavor.</td>
           </tr>
+          <tr>
+            <td>Greek Yogurt</td>
+            <td>Chobani, FAGE, Muller, Oikos</td>
+            <td>Serving Size: 1cup. Ensure that that there is less sugar. Tip: you may add 3oz of fruits to your yogurts.</td>
+          </tr>
+          <tr>
+            <td>Vegetables</td>
+            <td>Baby Carrots, Cauliflower, Edamame, Avacado, Peppers</td>
+            <td>A good portion size for these is approx 4-6oz. You may also dip them in hummus. Approx 3oz of hummus. </td>
+          </tr>
+          <tr>
+            <td>Water</td>
+            <td>Evian Natural Spring Water, FIJI Natural Artesian Water, Gerolsteiner Mineral Water, Perrier Mineral Water, Mountain Valley Spring Water,                 </td>
+            <td>Thats right. Water could be a great meal suppresser and also will keep you more awake and sharp.</td>
+          </tr>
         </tbody>
       </table>
     </div> <!--closing panel-default tag -->
-  </div> <!-- main col-md-6 tag -->
+  </div> <!-- main col-md-12 tag -->
+  <form>
+    <input type="text" ng-model="searchQuery" ng-model-options="{debounce: 500}" placeholder="Food Item">
+      <button type="submit" class="btn btn-primary" ng-click="search()"> Submit </button>
+  </form>
+  <div ng-show="hasSearchResults">
+    <div class="row" ng-repeat="item in searchResults.hits track by item._id">
+      <table class="table table-bordered table-striped table-hover">  
+        <tr>
+          <td>
+            <h5>{{item.fields.brand_name}}</h5>
+            <div>
+              {{item.fields.item_name}} <strong>Calories</strong> {{item.fields.nf_calories}} <strong>Carbs</strong> {{item.fields.nf_total_carbohydrate}}                 <strong>Protein</strong> {{item.fields.nf_protein}}
+            </div>
+          </td>
+        </tr>
+      <table>   
+    </div><!--closing row tag -->
+  </div> <!--closing ng-show tag -->  
 </div> <!--container closing tag --?
