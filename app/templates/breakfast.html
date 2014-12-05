@@ -34,57 +34,60 @@
       </table> <!--main table closing tag -->
     </div> <!-- closing panel default tag-->
   </div> <!--closing col-md-6 tag --> 
-    <div class="col-md-6"> 
-      <div class="row">
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/z4YF8ui.png" alt="image"/>
-        </div> <!--col-md-4 closing tag -->
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/h0PPcZC.jpg" alt="image 2">
-        </div> <!--closing md-4 tag -->
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/8CClfbA.jpg" alt="image 3">
-        </div> <!--closing col-md-4 -->
-      </div> <!--closing row tag -->
-      <div class="row img-snd">
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/Nfl4mKS.jpg" alt="image 4"/>
-        </div> <!--closing md-4-->
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/BK82o3m.jpg" alt="image 5"/>
-        </div> <!--closing md-4-->
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/gSuz0rq.jpg" alt="image 6">
-        </div> <!--closing col-md-4-->
-      </div> <!--closing second row tag -->
-      <div class="row">
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/bZ2hdQl.jpg" alt="image 7"/>
-        </div> <!--closing col-md-4 -->
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/kCAZMeY.jpg" alt="image 8"/>
-        </div> <!--closing col-md-4 -->
-        <div class="col-md-4">
-          <img src="http://i.imgur.com/w5Z0suq.jpg" alt="image 9"/>
-        </div> <!--col md-4 closing tag -->
-      </div> <!--closing row tag #3 -->
-   </div> <!--closing md-6 tag #2 -->
-    <form>
-      <input type="text" ng-model="searchQuery" ng-model-options="{debounce: 500}" placeholder="Food Item">
-        <button type="submit" class="btn btn-primary" ng-click="search()"> Submit </button>
-    </form>
-    <div ng-show="hasSearchResults">
-      <div class="row" ng-repeat="item in searchResults.hits track by item._id">
-        <table class="table table-bordered table-striped table-hover">
-          <tr>
-            <td>
-              <h5>{{item.fields.brand_name}}</h5> 
-              <div>
-                {{item.fields.item_name}} <strong>Calories</strong> {{item.fields.nf_calories}} <strong>Carbs</strong> {{item.fields.nf_total_carbohydrate}}                 <strong>Protein</strong> {{item.fields.nf_protein}} 
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div><!--closing row tag -->
-    </div> <!--closing ng-show tag -->
+  
+  <div class="col-md-6"> 
+    <div class="row">
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/z4YF8ui.png" alt="image"/>
+      </div> <!--col-md-4 closing tag -->
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/h0PPcZC.jpg" alt="image 2">
+      </div> <!--closing md-4 tag -->
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/8CClfbA.jpg" alt="image 3">
+      </div> <!--closing col-md-4 -->
+    </div> <!--closing row tag -->
+    
+    <div class="row img-snd">
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/Nfl4mKS.jpg" alt="image 4"/>
+      </div> <!--closing md-4-->
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/BK82o3m.jpg" alt="image 5"/>
+      </div> <!--closing md-4-->
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/gSuz0rq.jpg" alt="image 6">
+      </div> <!--closing col-md-4-->
+    </div> <!--closing second row tag -->
+    
+    <div class="row">
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/bZ2hdQl.jpg" alt="image 7"/>
+      </div> <!--closing col-md-4 -->
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/kCAZMeY.jpg" alt="image 8"/>
+      </div> <!--closing col-md-4 -->
+      <div class="col-md-4">
+        <img src="http://i.imgur.com/w5Z0suq.jpg" alt="image 9"/>
+      </div> <!--col md-4 closing tag -->
+    </div> <!--closing row tag #3 -->
+  </div> <!--closing md-6 tag #2 -->
+  <form>
+    <input type="text" ng-model="searchQuery" ng-model-options="{debounce: 500}" placeholder="Food Item"/>
+    <button type="submit" class="btn btn-primary" ng-click="search()"> Submit </button>
+  </form>
+  <div ng-show="hasSearchResults">
+    <div class="row" ng-repeat="item in searchResults.hits track by item._id">
+      <table class="table table-bordered table-striped table-hover">
+        <tr>
+          <td>
+            <h4>{{item.fields.brand_name}}</h4> 
+            <div>
+              {{item.fields.item_name}} <strong>Calories: </strong> {{item.fields.nf_calories}} <strong>Carbs: </strong>                                                   {{item.fields.nf_total_carbohydrate}}   <strong>Protein: </strong> {{item.fields.nf_protein}} 
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div><!--closing row tag -->
+  </div> <!--closing ng-show tag -->
 </div> <!--container closing tag -->

@@ -10,9 +10,6 @@ body {
   font-family: Exo;
 }
 
-.carousel-main {
-  margin-top: 55px;
-}
 
 .navbar-text > a {
   color: inherit; // what this will do will not show the blue highlighted color on our footer icons
@@ -21,24 +18,12 @@ body {
 
 
 .carousel {
-  margin-bottom: 30px;
+  margin-top: 30px;
   img {
-    min-width: 100%;
+   min-width: 100%;
   }
 }
 
-.thumbnail img:hover {
-  transform: scale(1.1);
-}
-
-.thumbnail img {
-  transition: all 0.3s ease 0s;
-  width: 100%;
-}
-
-.thumbnail {
-  overflow: hidden; 
-}
 
 .panel {
   width: 100%;
@@ -152,6 +137,7 @@ img {
 
 
 .home-images {
+  margin-top: 50px;
   @media (max-width: 800px) {
     flex-direction: column;
   }
@@ -228,3 +214,22 @@ img {
 }
 
 
+/////////////modal validation custom css///////////////
+
+form[novalidate] input {
+  border-left-width: 8px;
+  border-color: #3498db;
+  border-style: solid;
+}
+
+input[required].ng-pristine {
+  border-color: #ef4c3c;
+}
+
+input.ng-invalid.ng-dirty {
+  border-color: #ef4c3c;
+}
+
+input.ng-valid.ng-dirty {
+  border-color: #2ecc71;
+}

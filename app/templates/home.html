@@ -1,44 +1,20 @@
-<div class="container-fluid carousel-main">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol> <!--closing  carousel indicators tag -->
-    
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="http://i.imgur.com/ZtKoiwG.jpg" alt="gym photo"/>
-      </div> <!--closing item-active tag -->
-      <div class="item">
-        <img src="http://i.imgur.com/vLVXQdO.jpg" alt="fruit photo"/>
-      <div class="carousel-caption">
-        <h3>Mixed Berries for Antioxidants</h3>
-      </div> <!--closing caption tag -->
-      </div> <!--closing item tag -->
-      <div class="item">
-        <img src="http://i.imgur.com/kJlDPLe.jpg" alt="rest photo"/>
-      </div> <!-- closing item tag -->
-    </div> <!--carousel-inner closing tag -->
-      <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-  </div> <!-- Main Carousel closing tag-->
-  </div> <!--closing container -->
+<div class="container-fluid carousel">
+  <div ng-controller="CarouselDemoCtrl" id="slides_control">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}">
+      </slide>
+    </carousel>
+  </div> <!--closing ctrl tag -->
+</div> <!--closing container tag -->
 
-  <div class="container-fluid">
-    <div class="selling-points">
-      <div class="point"> <!-- Business  Plan Selling Points -->
-        <h3><strong>Nutrition / Training</strong></h3>
-        <p>Nutrition is 70% of the battle and Training is 30%. You could work out for 2 hours, but if you're not eating well, your cries will fall upon deaf            ears. 
-        </p>
-    </div> <!--Closing selling-point tag -->
+<div class="container-fluid">
+  <div class="selling-points">
+    <div class="point"> <!-- Business  Plan Selling Points -->
+      <h3><strong>Nutrition / Training</strong></h3>
+      <p>Nutrition is 70% of the battle and Training is 30%. You could work out for 2 hours, but if you're not eating well, your cries will fall upon deaf            ears. 
+      </p>
+    </div> <!--point tag -->
     <div class="point">
       <h3><strong>Coffee</strong></h3>
       <p> The lifeline for most people. This liquid sensation that's hitting the nation speeds up your bodies metabolism. A quick Coffee in the morning with             your meal will do you justice! 
@@ -55,14 +31,14 @@
       </p>
     </div> <!--Closing point tag -->
   </div> <!--Closing Selling Points Tag -->
- </div> <!--Closing container tag -->
+</div> <!--Closing container tag -->
 
  <div class="container-fluid">
    <div class="Nutrition-Plan">
      <h2>Proper diet is key to achieving the body you always wanted</h2> 
      <h3>Abs are not made in the gym, they are made in the kitchen! </h3>
    </div> <!--closing Nutrition-Plan tag -->
- </div> <!--closing hero-unit tag -->
+ </div> <!--closing container-fluidtag -->
 
  <div class="container-fluid">
    <div class="home-images">
@@ -85,7 +61,7 @@
        <p>At the end of the day eating well can only get you so far. It's time to get off the couch and drop those Doritos and head over to the gym                     to burn off some fat. Whether you're a beginner or familiar with the gym, training is important for everyone, so lets have fun and get                       started!  
        </p>
      </div> <!--closing col-md-4 -->
-   </div> <!--main flex closing tag -->  
+   </div> <!--home-images closing tag -->  
  </div> <!--container closing tag -->
  
  <div class="container-fluid Goals">
@@ -93,12 +69,9 @@
    <img src="http://i.imgur.com/FO09gRp.jpg" class="yoga" alt="yoga icon"/>
    <img src="http://i.imgur.com/Pk31qXk.jpg" class="dumbbell" alt="dumbbell icon"/>
    <img src="http://i.imgur.com/9T6XXc0.jpg" class="heart" alt="heart icon">
+ </div> <!--closing container-fluid tag -->
+
+ <div class="main-image">
+   <img src="http://i.imgur.com/CtWZNfB.jpg" alt="you are your worst enemy"/>
  </div> <!--closing hero-unit tag -->
-
-  <div class="main-image">
-    <img src="http://i.imgur.com/CtWZNfB.jpg" alt="you are your worst enemy"/>
-  </div> <!--closing hero-unit tag -->
   
-
-
-

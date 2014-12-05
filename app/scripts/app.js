@@ -1,6 +1,4 @@
-var bodyApp = angular.module("bodyApp", ["ui.router", 'firebase']);
-// https://cdn.firebase.com/v0/firebase.js - input into dependecy. 
-// https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js
+var bodyApp = angular.module("bodyApp", ["ui.router",'firebase', 'ui.bootstrap' ]);
 
 
 
@@ -79,14 +77,22 @@ bodyApp.service('nutritionApi', ['$http', '$q', function($http, $q){
 }]);
 
 
+bodyApp.controller("homeCtrl", ["$scope", function($scope){
 
-bodyApp.controller("homeCtrl", ["$scope", function($scope) {
-
- $('.carousel').carousel({  // using jQuery event to start the carousel
- 		interval: 3500
-	});
   
 }]);
+
+bodyApp.controller('CarouselDemoCtrl', ["$scope", function($scope) {
+
+  $scope.myInterval = 3000;
+  $scope.slides = [
+    {image: "http://i.imgur.com/ZtKoiwG.jpg", description: 'workout' },
+    {image: "http://i.imgur.com/vLVXQdO.jpg", description: 'berries' },
+    {image: "http://i.imgur.com/kJlDPLe.jpg", descriptino: 'rest'}
+    ];
+}]);
+
+
 
 
 bodyApp.controller('snacksCtrl', ["$scope", 'nutritionApi', function($scope, nutritionApi){
@@ -169,6 +175,7 @@ bodyApp.controller("aboutmeCtrl", ["$scope", function($scope){
 
 bodyApp.controller("contactCtrl", ['$scope', '$firebase', function($scope, $firebase){
 
+
   var fire = new Firebase('https://bodybyyou.firebaseio.com');
   $scope.messages = $firebase(fire).$asArray();
 
@@ -187,19 +194,11 @@ bodyApp.controller("contactCtrl", ['$scope', '$firebase', function($scope, $fire
   
   console.log(fire);
   
-  
-  
- /* $scope.addForm = function(isValid) {
-  
-    if(isValid) {
-        alert('yay');
+  $scope.sendForm = function(){
+    if($scope.userForm.$valid){
+     alert('Please baby jesus work');
     }
-    else {
-      alert('fill in required field');
-    }
-    $scope.addMessage();
-  };
-   console.log('test'); */
+  }
   
   
 }]);

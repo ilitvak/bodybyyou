@@ -45,21 +45,21 @@
     </div> <!--closing panel-default tag -->
   </div> <!-- main col-md-12 tag -->
   <form>
-    <input type="text" ng-model="searchQuery" ng-model-options="{debounce: 500}" placeholder="Food Item">
-      <button type="submit" class="btn btn-primary" ng-click="search()"> Submit </button>
+    <input type="text" ng-model="searchQuery" ng-model-options="{debounce: 500}" placeholder="Food Item"/>
+    <button type="submit" class="btn btn-primary" ng-click="search()"> Submit </button>
   </form>
   <div ng-show="hasSearchResults">
     <div class="row" ng-repeat="item in searchResults.hits track by item._id">
       <table class="table table-bordered table-striped table-hover">  
         <tr>
           <td>
-            <h5>{{item.fields.brand_name}}</h5>
+            <h4>{{item.fields.brand_name}}</h4>
             <div>
               {{item.fields.item_name}} <strong>Calories</strong> {{item.fields.nf_calories}} <strong>Carbs</strong> {{item.fields.nf_total_carbohydrate}}                 <strong>Protein</strong> {{item.fields.nf_protein}}
             </div>
           </td>
         </tr>
-      <table>   
+      </table>   
     </div><!--closing row tag -->
   </div> <!--closing ng-show tag -->  
 </div> <!--container closing tag --?
