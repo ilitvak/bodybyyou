@@ -16,54 +16,52 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="/js/app.js"></script>
 </head>
-  <body> 
-    <!--Main Navbar Navigation -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" ui-sref="home"><strong>BodyByYou</strong></a>
-           
-            
-        </div> <!--navbar-header closing -->
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="glyphicon glyphicon-home" ui-sref="home"></a></li>
-            <li><a ui-sref="home"> Home </a></li>
-            <li class="dropdown">
-            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Nutrition<b class="caret"></b></a>
+<body> 
+  <!--Main Navbar Navigation -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="home"><strong>BodyByYou</strong></a>      
+      </div> <!--navbar-header closing -->
+      
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="glyphicon glyphicon-home" ui-sref="home"></a></li>
+          <li><a ui-sref="home"> Home </a></li>
+          <li class="dropdown first-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nutrition<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">Knowing Your Food</li>
               <li class="divider"></li>
               <li><a ui-sref="fats">Fats</a></li>
               <li><a ui-sref="carbohydrates">Carbohydrates</a></li>
               <li><a ui-sref="proteins">Proteins</a></li>
-            </ul>
-              </li> <!-- main dropdown closing tag -->
+            </ul> <!--dropdown-menu tag -->
+          </li> <!-- first-dropdown closing tag -->
             
-            
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grocery List<b class="caret"></b></a> 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grocery List<b class="caret"></b></a> 
             <ul class="dropdown-menu">
               <li class="dropdown-header">Shopping Smart</li>  
-                <li class="divider"></li>
-                <li><a ui-sref="breakfast">Breakfast</a></li>
-                <li><a ui-sref="snacks">Snacks</a></li>
-                <li><a ui-sref="lunch">Lunch</a></li>
-                <li><a ui-sref="dinner">Dinner</a></li>
-            </ul>
-            </li> <!-- main dropdown closing tag -->
-              <li><a ui-sref="aboutme">About Me</a></li>
-              <li><a href="#contact" data-toggle="modal">Contact</a></li>
-          </ul><!--dropdown-menu closing tag -->
-        </div> <!--navbar-collapse colsing tag -->
-      </div> <!--container closing tag -->
-    </div> <!--main navbar closing tag -->
+              <li class="divider"></li>
+              <li><a ui-sref="breakfast">Breakfast</a></li>
+              <li><a ui-sref="snacks">Snacks</a></li>
+              <li><a ui-sref="lunch">Lunch</a></li>
+              <li><a ui-sref="dinner">Dinner</a></li>
+            </ul> <!--dropdown-menu closing tag -->
+          </li> <!-- main dropdown closing tag -->
+          <li><a ui-sref="aboutme">About Me</a></li>
+          <li><a href="#contact" data-toggle="modal">Contact</a></li>
+        </ul><!--nav navbar-nav navbar-right closing tag -->
+      </div> <!--navbar-collapse colsing tag -->
+    </div> <!--container closing tag -->
+  </div> <!--main navbar closing tag -->
     
     
    <div ui-view></div> <!--Connecting our views from app.js -->
@@ -88,34 +86,24 @@
     <div class="modal fade" id="contact" role="dialog" ng-controller="contactCtrl">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form class="form-horizontal" role="form" name="userForm" ng-submit="sendForm()" novalidate>
+          <form class="form-horizontal" role="form" name="userForm" novalidate>
               <div class="modal-header">
                 <h3>Contact</h3>
               </div> <!--modal header -->
+            
               <div class="modal-body">
                 <div class="form-group">
                   <label for="contact-name" class="col-sm-2 control-label">Name</label>
                   <div class="col-sm-10">
-                    <input
-                           type="text" 
-                           class="form-control" 
-                           id="contact-name" 
-                           placeholder="First and Last" 
-                           ng-model="name"
-                           name="name" required>
+                    <input type="text" class="form-control" id="contact-name" placeholder="First and Last" ng-model="name" name="name" required>
                     <span ng-show="userForm.name.$dirty && userForm.name.$error.required">Type Name!</span>
                   </div> <!--col-sm-10 -->  
                 </div> <!--form group -->
+                
                 <div class="form-group">
                   <label for="contact-email" class="col-sm-2 control-label">Email</label>
                   <div class="col-sm-10">
-                    <input
-                           type="email" 
-                           class="form-control" 
-                           id="contact-email" 
-                           placeholder="john.doe@gmail.com" 
-                           ng-model="email" 
-                           name="email" required>
+                    <input type="email" class="form-control" id="contact-email" placeholder="john.doe@gmail.com" ng-model="email" name="email" required>
                     <span ng-show="userForm.email.$dirty && userForm.email.$error.required">Required!</span>
                     <span ng-show="userForm.email.$dirty && userForm.email.$error.email">Not an Email!</span> 
                   </div>  <!--col-sm-10 --> 
@@ -131,7 +119,7 @@
             
               <div class="modal-footer">
                 <a class="btn btn-primary" data-dismiss="modal">Close</a>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-disabled="userForm.$invalid">Send</button> 
+                <button type="submit" class="btn btn-primary" ng-click="addMessage()" ng-disabled="userForm.$invalid" data-dismiss="modal">Send</button> 
               </div> <!--modal footer-->
           </form> <!--closing form-->
           

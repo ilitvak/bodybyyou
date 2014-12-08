@@ -1,13 +1,12 @@
-var bodyApp = angular.module("bodyApp", ["ui.router",'firebase', 'ui.bootstrap' ]);
+var bodyApp = angular.module("bodyApp", ["ui.router",'firebase', 'ui.bootstrap']);
 
-
-
-
-bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $locationProvider, $http) {
+bodyApp.config(["$stateProvider",'$urlRouterProvider' ,"$locationProvider", function($stateProvider, $urlRouterProvider, $locationProvider, $http) {
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false
   });  
+  
+  $urlRouterProvider.otherwise('/'); 
   
   $stateProvider.state("home", {
     url: "/",
@@ -38,12 +37,6 @@ bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $
     controller: "breakfastCtrl",
     templateUrl: "/templates/breakfast.html"
   });
-  
-  $stateProvider.state("aboutme", {
-    url: "/aboutme",
-    controller: "aboutmeCtrl",
-    templateUrl: "/templates/aboutme.html"
-  });
 
   $stateProvider.state("snacks", {
     url: "/snacks",
@@ -63,6 +56,13 @@ bodyApp.config(["$stateProvider","$locationProvider", function($stateProvider, $
     templateUrl: "/templates/dinner.html"
   });
   
+  $stateProvider.state("aboutme", {
+    url: "/aboutme",
+    controller: "aboutmeCtrl",
+    templateUrl: "/templates/aboutme.html"
+  });
+  
+  
 }]); // closing config tag.
 
 bodyApp.service('nutritionApi', ['$http', '$q', function($http, $q){
@@ -77,11 +77,6 @@ bodyApp.service('nutritionApi', ['$http', '$q', function($http, $q){
 }]);
 
 
-bodyApp.controller("homeCtrl", ["$scope", function($scope){
-
-  
-}]);
-
 bodyApp.controller('CarouselDemoCtrl', ["$scope", function($scope) {
 
   $scope.myInterval = 3000;
@@ -93,47 +88,16 @@ bodyApp.controller('CarouselDemoCtrl', ["$scope", function($scope) {
 }]);
 
 
-
-
-bodyApp.controller('snacksCtrl', ["$scope", 'nutritionApi', function($scope, nutritionApi){
-  
-  $scope.searchQuery = '';
-  $scope.hasSearchResults = false;
-  $scope.searchResults = [];
-  
-  $scope.search = function(){
-    nutritionApi.search($scope.searchQuery).then(onSearchSuccess, onSearchFailure);
-    console.log("searchingFor" + $scope.searchQuery);
-  };
-  
-  function onSearchSuccess(data){
-    $scope.hasSearchResults = true;
-    $scope.searchResults = data;
-  }
-  
-  function onSearchFailure(message){
-    console.log("error: ", message);
-  }
-  
-}]);
-
-bodyApp.controller("lunchCtrl", ["$scope", "$state", function($scope, $state) {
-  $scope.oils = function(){
-    $state.go("fats");
-  };
-
-}]);
-
-bodyApp.controller("dinnerCtrl", ["$scope", function($scope){
+bodyApp.controller("homeCtrl", ["$scope", function($scope){
 
   
 }]);
-
 
 bodyApp.controller("fatsCtrl", ["$scope", function($scope) {
 
 
 }]);
+
 
 bodyApp.controller("carbohydratesCtrl", ["$scope", function($scope) {
   
@@ -168,15 +132,51 @@ bodyApp.controller("breakfastCtrl", ["$scope", 'nutritionApi', function($scope, 
   
 }]);
 
+bodyApp.controller('snacksCtrl', ["$scope", 'nutritionApi', function($scope, nutritionApi){
+  
+  $scope.searchQuery = '';
+  $scope.hasSearchResults = false;
+  $scope.searchResults = [];
+  
+  $scope.search = function(){
+    nutritionApi.search($scope.searchQuery).then(onSearchSuccess, onSearchFailure);
+    console.log("searchingFor" + $scope.searchQuery);
+  };
+  
+  function onSearchSuccess(data){
+    $scope.hasSearchResults = true;
+    $scope.searchResults = data;
+  }
+  
+  function onSearchFailure(message){
+    console.log("error: ", message);
+  }
+  
+}]);
+
+bodyApp.controller("lunchCtrl", ["$scope", "$state", function($scope, $state) {
+  $scope.oils = function(){
+    $state.go("fats");
+  };
+}]);
+
+
+
+bodyApp.controller("dinnerCtrl", ["$scope", function($scope){
+
+  
+}]);
+
 bodyApp.controller("aboutmeCtrl", ["$scope", function($scope){
   
 
 }]);
 
+
 bodyApp.controller("contactCtrl", ['$scope', '$firebase', function($scope, $firebase){
 
 
-  var fire = new Firebase('https://bodybyyou.firebaseio.com');
+  var fire = new Firebase('https://bodybyyou.firebaseio.com/');
   $scope.messages = $firebase(fire).$asArray();
 
   $scope.name ='';
@@ -186,23 +186,15 @@ bodyApp.controller("contactCtrl", ['$scope', '$firebase', function($scope, $fire
 
   $scope.addMessage = function() {
     $scope.messages.$add({'name': $scope.name, 'email': $scope.email, 'message': $scope.message});
-    console.log($scope.name, $scope.email, $scope.message);
     $scope.name = '';
     $scope.email = '';
     $scope.message = '';
+    $('#contact').modal('hide');
   };
-  
+  console.log($scope.name, $scope.email, $scope.message);
   console.log(fire);
   
-  $scope.sendForm = function(){
-    if($scope.userForm.$valid){
-     alert('Please baby jesus work');
-    }
-  }
-  
-  
 }]);
-
 
 
 
