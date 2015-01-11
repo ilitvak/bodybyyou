@@ -10,7 +10,7 @@ What is BodyByYou?
 ----------------
 BodyByYou is a nutrition/educational website to inform people of the various benefits or eating healthy. The website covers multiple areas from food types: fats, carbs, proteins, shopping lists, to motivational quotes. This website emcompases a lot of my daily life and the effort that is required to eat well. Everyone wants to eat well and sometimes you just need a little direction on how to do that. This is what BodyByYou does. It gives the user a thorough look on food suggestions and how to shop smart. Key Note: I am not a nutritionist, but I am a Certified Personal Trainer, so all of the food recommendations/portion sizes are my own suggestions based on copious amounts of research.
 
-BodyByYou is built with [AngularJS](https://angularjs.org/), [Express](http://expressjs.com/), [Node.js](https://www.npmjs.com/) and [Bower](http://bower.io/) using Nitrious.io. 
+BodyByYou is built with [AngularJS](https://angularjs.org/), [Express](http://expressjs.com/) and [Node.js](https://www.npmjs.com/) using Nitrious.io. 
 
 BodyByYou utilizes a single-page architecture using [AngularJS](https://angularjs.org/) to provide the user with a fluid experience. There is also a [NutritionIX API](http://www.nutritionix.com/api) that allows the user to search for their desired, snack/food and provides a neat table with all of the nutritional values.  
 
@@ -26,8 +26,6 @@ Definitions of Commands
 
 **[NPM](https://www.npmjs.com/)** - Node Package Manager (Server Manager)
 
-**[Bower](http://bower.io/)** - Client side Package Manager
-
 **[Grunt](http://gruntjs.com/)** - looks for files using a defined pattern so that it knows what to compile and copy and where to put it. To edit the files that Grunt watches, look at the array of files in the watch task in [Gruntfile.js](https://github.com/carmenvkrol/bloc-pomodoro/blob/master/gruntfile.js)
 
 
@@ -35,7 +33,7 @@ Definitions of Commands
 Installation Steps:
 -------------------
 
-You should already have [Node.js](https://www.npmjs.com/) and [Bower](http://bower.io/) installed.
+You should already have [Node.js](https://www.npmjs.com/) installed.
 
 
 Start by cloning the repository.
