@@ -33,7 +33,7 @@ Definitions of Commands
 Installation Steps:
 -------------------
 
-You should already have [Node.js](https://www.npmjs.com/) installed.
+You should already have [Node.js](https://www.npmjs.com/) installed before cloning.
 
 
 Start by cloning the repository.
