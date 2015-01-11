@@ -62,7 +62,7 @@ In the second tab, run
 
 `$ grunt`
 
-The application runs on port 3000 (configured in the [`Gruntfile.js`]. To change the port, modify the number highlighted below
+The application runs on port 3000 - configured in the [`Gruntfile.js`]. To change the port, modify the number highlighted below
 
 ```js
 connect: {
@@ -77,7 +77,6 @@ connect: {
   }
 }
 ```
-
 
 Screenshots
 -----------
